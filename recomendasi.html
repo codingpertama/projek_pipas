@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>PesenAja - Lokasi Restoran</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+
+    .lokasi-box {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .lokasi-box span {
+      font-size: 18px;
+    }
+
+    .lokasi-box button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      background-color: green;
+      color: white;
+      cursor: pointer;
+    }
+
+    .resto-card {
+      display: none;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+    }
+
+    .resto-card h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    .resto-card p {
+      margin: 5px 0 0;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lokasi-box">
+    <span id="alamat">Mendeteksi lokasi kamu...</span>
+    <button onclick="tampilkanRestoran()">Explore</button>
+  </div>
+
+  <!-- Card restoran -->
+  <div id="card-cisarua" class="resto-card">
+    <h3>Restoran di Cisarua</h3>
+    <p>Jalan Raya Puncak No. 88, Cisarua</p>
+  </div>
+
+  <div id="card-tajur" class="resto-card">
+    <h3>Restoran di Tajur</h3>
+    <p>Jalan Tajur No. 123, Bogor</p>
+  </div>
+
+  <div id="card-puncak" class="resto-card">
+    <h3>Restoran di Puncak</h3>
+    <p>Jalan Puncak Indah, Bogor</p>
+  </div>
+
+  <script>
+    let alamatSekarang = ""; // buat nyimpan alamat user
+
+    // Ambil lokasi saat halaman dibuka
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(posisi) {
+        const lat = posisi.coords.latitude;
+        const lon = posisi.coords.longitude;
+
+        // Ubah titik lokasi jadi nama jalan / kota
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+          .then(res => res.json())
+          .then(data => {
+            alamatSekarang = data.display_name; // Simpan alamat
+            document.getElementById("alamat").innerText = alamatSekarang;
+          })
+          .catch(() => {
+            document.getElementById("alamat").innerText = "Gagal mengambil alamat.";
+          });
+      }, function() {
+        document.getElementById("alamat").innerText = "Kamu tidak mengizinkan akses lokasi.";
+      });
+    } else {
+      document.getElementById("alamat").innerText = "Browser kamu tidak mendukung lokasi.";
+    }
+
+    function tampilkanRestoran() {
+      // Sembunyikan semua card dulu
+      document.getElementById("card-cisarua").style.display = "none";
+      document.getElementById("card-tajur").style.display = "none";
+      document.getElementById("card-puncak").style.display = "none";
+
+      const teksAlamat = alamatSekarang.toLowerCase(); // biar bisa dicek pakai lowercase
+
+      if (teksAlamat.includes("cisarua")) {
+        document.getElementById("card-cisarua").style.display = "block";
+      } else if (teksAlamat.includes("tajur")) {
+        document.getElementById("card-tajur").style.display = "block";
+      } else if (teksAlamat.includes("puncak")) {
+        document.getElementById("card-puncak").style.display = "block";
+      } else {
+        alert("Maaf, wilayah kamu belum tersedia 😢");
+      }
+    }
+  </script>
+
+</body>
+</html>
