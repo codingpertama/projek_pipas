@@ -1,0 +1,46 @@
+:root{
+    --main-color: #00aa13;
+    --main-color-light: #ffff;
+    --strip-color: #b60303;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.icon_search{
+    background-color: #42f48991;
+    color:#007e0f;
+}
+
+.btn_login {
+    background-color: #42f48991;
+    color:#007e0f;
+    border-radius: 100px;
+    font-weight:600;
+}
+
+.jumbotron-bg {
+  background-image: url(../img/jumbotron.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  height: 430px;
+  margin: 5px;
+}
+
+.display-4 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.btn_map {
+    background-color: #42f48991;
+    color:#007e0f;
+    padding: 35px 120px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
