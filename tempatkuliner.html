@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Peta Kuliner Bogor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    #map { height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Inisialisasi peta di sekitar Bogor
+    var map = L.map('map').setView([-6.6785, 106.9498], 14);
+
+    // Tambahkan tile dari OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Tambahkan beberapa marker lokasi kuliner
+    const places = [
+      {
+        name: "Soto Mie Mang Udin",
+        lat: -6.5945,
+        lng: 106.8055,
+        menu: "Soto Mie + Risol Spesial"
+      },
+      {
+        name: "Toge Goreng Bu Imah",
+        lat: -6.5981,
+        lng: 106.8191,
+        menu: "Toge Goreng Khas Bogor"
+      },
+      {
+        name: "Asinan Bogor Gedung Dalam",
+        lat: -6.5972,
+        lng: 106.8143,
+        menu: "Asinan Sayur & Buah"
+      }
+    ];
+
+    places.forEach(place => {
+      L.marker([place.lat, place.lng])
+        .addTo(map)
+        .bindPopup(`<b>${place.name}</b><br>${place.menu}`);
+    });
+  </script>
+</body>
+</html>
