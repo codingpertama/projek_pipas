@@ -19,65 +19,74 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <!-- font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg bg-white">
       <div class="container-fluid">
-        <!-- Logo -->
-        <img
-          src="img/revisiteks2.svg"
-          alt="logo PesenAja"
-          width="65"
-          height="65"
-        />
-
-        <!-- Hamburger & Search Icon -->
+        <!-- Kiri: Logo + Hamburger -->
         <div class="d-flex align-items-center">
-          <!-- Tombol hamburger -->
+          <a href="index.html">
+          <img
+            src="img/revisiteks2.svg"
+            alt="logo PesenAja"
+            width="65"
+            height="65"
+          />
+          </a>
           <button
-            class="navbar-toggler me-2"
+            class="navbar-toggler ms-2"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
+            data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-
-          <!-- Icon search di kanan hamburger -->
-          <i
-            class="fa-solid fa-magnifying-glass text-white p-2 rounded-circle icon_search"
-          ></i>
         </div>
 
-        <!-- Menu collapse -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- Tengah: Menu + Tombol Login (masuk collapse) -->
+        <div class="collapse navbar-collapse" id="navbarMenu">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-3">
             <li class="nav-item">
-              <b>
-                <a class="nav-link active" aria-current="page" href="#">Utama</a>
-              </b>
+              <a class="nav-link fw-bold" href="#">Beranda</a>
             </li>
             <li class="nav-item">
-              <b><a class="nav-link" href="recomendasi.html">Rekomendasi</a></b>
+              <a class="nav-link fw-bold" href="recomendasi.html">Kategori</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="recomendasi.html">Tentang</a>
             </li>
           </ul>
-          <button class="btn btn_login" type="submit">Masuk</button>
+          <button
+            class="btn btn_login rounded-pill px-4 me-2 mb-2 mb-lg-0"
+            type="submit">Masuk</button>
+        </div>
+
+        <!-- Kanan: Ikon Search -->
+        <div class="d-flex align-items-center">
+          <i class="fa-solid fa-magnifying-glass p-2 rounded-circle icon_search"></i>
         </div>
       </div>
     </nav>
 
-    <div class="jumbotron-bg text-white d-flex align-items-center">
-      <div class="container text-center">
-        <h1 class="display-4 mb-4">Jelajah rasa khas Bogor, cukup PesenAja.</h1>
-        <p class="lead">Jalan-jalan ke Surya Kencana,<br> nyari makan malah bingung juga. <br>Gak usah ribet keliling kota,<br> tinggal buka PesenAja!</p>
-      </div>
+  <div class="jumbotron-bg text-white d-flex flex-column justify-content-center">
+    <div class="container text-center">
+      <h1 class="display-4 mb-4">Jelajah rasa khas Cisarua, cukup PesenAja.</h1>
+      <p class="lead">
+        Jalan-jalan ke Surya Kencana,<br/>
+        nyari makan malah bingung juga. <br/>
+        Gak usah ribet keliling kota,<br/>
+        tinggal buka PesenAja!
+      </p>
+      <a href="tempatkuliner.html" class="btn_map bg-white text-black d-inline-block mt-3 tex">Cari Kuliner Sekitar Bogor</a>
     </div>
-
-
+  </div>
 
 
     <!-- script BootStrap -->

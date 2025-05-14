@@ -9,7 +9,8 @@ body {
 }
 
 .icon_search{
-    background-color: var(--main-color);
+    background-color: #42f48991;
+    color:#007e0f;
 }
 
 .btn_login {
@@ -32,4 +33,14 @@ body {
 .display-4 {
     font-size: 2.5rem;
     font-weight: 700;
+}
+
+.btn_map {
+    background-color: #42f48991;
+    color:#007e0f;
+    padding: 35px 120px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
